@@ -324,21 +324,42 @@ La aplicación incluye tests para:
 **Causa:** Extensiones del navegador (gestor de contraseñas, auto-fill) modifican los atributos del DOM (como `fdprocessedid`) después del renderizado del servidor pero antes de la hidratación de React, causando una discrepancia entre el HTML del servidor y el del cliente.
 
 **Solución:**
-- Agregado `suppressHydrationWarning` a los elementos de formulario que son frecuentemente modificados por extensiones:
-  - Input para el nombre de la tarea (`TareaForm.js`)
-  - Textarea para la descripción (`TareaForm.js`)
-  - Input de búsqueda (`TareaLista.js`)
+- Agregado `suppressHydrationWarning` a todos los elementos de formulario e interactivos que son frecuentemente modificados por extensiones:
+  - Inputs (nombre, búsqueda) y textarea (descripción) en `TareaForm.js` y `TareaLista.js`
+  - Todos los botones en `TareaForm.js`, `TareaDetalle.js`, y `TareaLista.js`
 
 Esta propiedad de React le indica que ignore las discrepancias de hidratación en esos elementos específicos, que sabemos son causadas por extensiones y no por errores reales de SSR.
 
 **Cambios:**
-- `components/TareaForm.js`: Líneas 81, 95
-- `components/TareaLista.js`: Línea 47
+- `components/TareaForm.js`: Inputs en líneas 81, 95 + botones en líneas 106, 114, 125
+- `components/TareaLista.js`: Input en línea 47 + botón en línea 54
+- `components/TareaDetalle.js`: Botones en líneas 72, 113, 122, 129, 137, 157, 164
 
 **Resultado:**
 - ✅ Consola limpia sin advertencias de hydration
 - ✅ App funciona correctamente sin afectar la funcionalidad
 - ✅ Compatible con extensiones de navegador
+- ✅ Todos los elementos interactivos protegidos contra discrepancias SSR
+
+---
+
+### 7. **Simplificación de jsconfig.json** ✅
+**Problema:** El archivo `jsconfig.json` contenía configuración innecesaria que causaba errores de validación en el editor.
+
+**Solución:**
+- Simplificado `jsconfig.json` a la configuración básica de Next.js
+- Eliminada cualquier configuración redundante o conflictiva
+- Mantenida la configuración esencial:
+  - `baseUrl: "."` - Para resolver módulos desde la raíz del proyecto
+  - `paths: { "@/*": ["./*"] }` - Para importes con alias @
+
+**Cambios:**
+- `jsconfig.json`: Simplificado a configuración mínima
+
+**Resultado:**
+- ✅ Sin errores rojos en el editor
+- ✅ Configuración limpia y estándar de Next.js
+- ✅ Mejor compatibilidad con herramientas de desarrollo
 
 ---
 

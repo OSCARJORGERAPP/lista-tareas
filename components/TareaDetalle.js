@@ -70,6 +70,7 @@ export default function TareaDetalle({
           onClick={onCerrar}
           disabled={loading}
           title="Cerrar"
+          suppressHydrationWarning
         >
           ✕
         </button>
@@ -112,6 +113,7 @@ export default function TareaDetalle({
             onClick={handleContextMenuOpen}
             disabled={loading}
             title="Abrir menú de acciones"
+            suppressHydrationWarning
           >
             ⋮ Acciones
           </button>
@@ -122,6 +124,7 @@ export default function TareaDetalle({
                 onClick={() => handleAccion('leer')}
                 className={styles.menuItem}
                 disabled={loading}
+                suppressHydrationWarning
               >
                 👁️ Leer
               </button>
@@ -129,6 +132,7 @@ export default function TareaDetalle({
                 onClick={() => handleAccion('actualizar')}
                 className={styles.menuItem}
                 disabled={loading}
+                suppressHydrationWarning
               >
                 ✏️ Actualizar
               </button>
@@ -136,6 +140,7 @@ export default function TareaDetalle({
                 onClick={() => handleAccion('eliminar')}
                 className={`${styles.menuItem} ${styles.delete}`}
                 disabled={loading}
+                suppressHydrationWarning
               >
                 🗑️ Eliminar
               </button>
@@ -155,6 +160,7 @@ export default function TareaDetalle({
                 onClick={handleConfirmDelete}
                 className={styles.confirmBtn}
                 disabled={loading}
+                suppressHydrationWarning
               >
                 {loading ? '⏳ Eliminando...' : '✓ Eliminar'}
               </button>
@@ -162,6 +168,7 @@ export default function TareaDetalle({
                 onClick={handleCancelDelete}
                 className={styles.cancelBtn}
                 disabled={loading}
+                suppressHydrationWarning
               >
                 ✕ Cancelar
               </button>

@@ -53,6 +53,7 @@ export default function TareaLista({ tareas, onSelect, loading, onSearch }) {
             className={styles.clearBtn}
             disabled={loading}
             title="Limpiar búsqueda"
+            suppressHydrationWarning
           >
             ✕
           </button>

@@ -104,6 +104,7 @@ export default function TareaForm({ onSubmit, tareaActual, loading, error, reset
           type="submit"
           disabled={loading}
           className={styles.submitBtn}
+          suppressHydrationWarning
         >
           {loading ? '⏳ Procesando...' : (tareaActual ? '💾 Actualizar' : '➕ Crear')}
         </button>
@@ -113,6 +114,7 @@ export default function TareaForm({ onSubmit, tareaActual, loading, error, reset
             onClick={handleReset}
             disabled={loading}
             className={styles.resetBtn}
+            suppressHydrationWarning
           >
             ❌ Cancelar Edición
           </button>
@@ -123,6 +125,7 @@ export default function TareaForm({ onSubmit, tareaActual, loading, error, reset
             onClick={handleReset}
             disabled={loading}
             className={styles.resetBtn}
+            suppressHydrationWarning
           >
             ❌ Limpiar
           </button>
