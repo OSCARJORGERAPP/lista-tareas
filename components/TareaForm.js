@@ -79,6 +79,7 @@ export default function TareaForm({ onSubmit, tareaActual, loading, error, reset
           placeholder="Ingresa el nombre de la tarea"
           maxLength="100"
           disabled={loading}
+          suppressHydrationWarning
         />
         <span className={styles.charCount}>{nombre.length}/100</span>
       </div>
@@ -93,6 +94,7 @@ export default function TareaForm({ onSubmit, tareaActual, loading, error, reset
           maxLength="500"
           rows="4"
           disabled={loading}
+          suppressHydrationWarning
         />
         <span className={styles.charCount}>{descripcion.length}/500</span>
       </div>
