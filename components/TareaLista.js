@@ -44,6 +44,7 @@ export default function TareaLista({ tareas, onSelect, loading, onSearch }) {
           value={search}
           onChange={(e) => handleSearchChange(e.target.value)}
           disabled={loading}
+          suppressHydrationWarning
         />
         {search && (
           <button

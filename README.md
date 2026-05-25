@@ -318,6 +318,30 @@ La aplicación incluye tests para:
 
 ---
 
+### 6. **Corrección de Hydration Mismatch Warnings** ✅
+**Problema:** React mostraba advertencias "Tree hydrated but some attributes..." en la consola del navegador.
+
+**Causa:** Extensiones del navegador (gestor de contraseñas, auto-fill) modifican los atributos del DOM (como `fdprocessedid`) después del renderizado del servidor pero antes de la hidratación de React, causando una discrepancia entre el HTML del servidor y el del cliente.
+
+**Solución:**
+- Agregado `suppressHydrationWarning` a los elementos de formulario que son frecuentemente modificados por extensiones:
+  - Input para el nombre de la tarea (`TareaForm.js`)
+  - Textarea para la descripción (`TareaForm.js`)
+  - Input de búsqueda (`TareaLista.js`)
+
+Esta propiedad de React le indica que ignore las discrepancias de hidratación en esos elementos específicos, que sabemos son causadas por extensiones y no por errores reales de SSR.
+
+**Cambios:**
+- `components/TareaForm.js`: Líneas 81, 95
+- `components/TareaLista.js`: Línea 47
+
+**Resultado:**
+- ✅ Consola limpia sin advertencias de hydration
+- ✅ App funciona correctamente sin afectar la funcionalidad
+- ✅ Compatible con extensiones de navegador
+
+---
+
 ## 🚨 Solución de Problemas
 
 ### MongoDB no conecta
