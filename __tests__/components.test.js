@@ -33,10 +33,10 @@ describe('TareaForm Component', () => {
   })
 
   it('debe mostrar error de validación cuando la descripción está vacía', () => {
-    const nombreInput = screen.getByPlaceholderText('Ingresa el nombre de la tarea')
-    
     render(<TareaForm onSubmit={mockOnSubmit} loading={false} error="" />)
-    
+
+    const nombreInput = screen.getByPlaceholderText('Ingresa el nombre de la tarea')
+
     fireEvent.change(nombreInput, { target: { value: 'Tarea de prueba' } })
     fireEvent.click(screen.getByText('➕ Crear'))
 
