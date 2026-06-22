@@ -22,7 +22,6 @@ export default function TareaDetalle({
 }) {
   const [showContextMenu, setShowContextMenu] = useState(false)
   const [showConfirmDelete, setShowConfirmDelete] = useState(false)
-  const [menuAction, setMenuAction] = useState(null)
 
   if (!tarea) return null
 

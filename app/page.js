@@ -18,7 +18,6 @@ export default function Home() {
   const [success, setSuccess] = useState('')
   const [tareaActual, setTareaActual] = useState(null)
   const [tareaSeleccionada, setTareaSeleccionada] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
   const [resetFormTrigger, setResetFormTrigger] = useState(0)
 
   /**
