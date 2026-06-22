@@ -180,7 +180,6 @@ export default function Home() {
    * Filtra tareas por nombre
    */
   const handleBusqueda = async (search) => {
-    setSearchTerm(search)
     await cargarTareas(search)
   }
 

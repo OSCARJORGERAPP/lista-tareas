@@ -31,8 +31,6 @@ export default function TareaDetalle({
   }
 
   const handleAccion = (action) => {
-    setMenuAction(action)
-    
     switch (action) {
       case 'leer':
         setShowContextMenu(false)
@@ -57,7 +55,6 @@ export default function TareaDetalle({
 
   const handleCancelDelete = () => {
     setShowConfirmDelete(false)
-    setMenuAction(null)
   }
 
   return (
